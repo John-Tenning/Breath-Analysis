@@ -46,3 +46,24 @@ val_data = test_set.flow_from_directory(
         batch_size=1,
         target_size=(128, 128))
 
+model = Sequential()
+model.add(Conv2D(32, (3,3),activation='relu'))
+model.add(MaxPool2D())
+model.add(Conv2D(64, (3,3),activation='relu'))
+model.add(MaxPool2D())
+model.add(Conv2D(64, (3,3),activation='relu'))
+model.add(MaxPool2D())
+model.add(Flatten())
+model.add(Dense(128,activation='relu'))
+model.add(Dropout(0.15))
+model.add(Dense(5, activation='softmax'))
+model.compile(optimizer=tf.keras.optimizers.Adam(3e-4),
+              loss='categorical_crossentropy', 
+              metrics=['accuracy'])
+
+log_dir = "logs/fit/" + "MODEL_14"
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+
+model.fit(training_data,
+          validation_data=val_data,epochs=50,
+          callbacks=[tensorboard_callback])
