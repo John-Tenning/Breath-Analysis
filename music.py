@@ -60,10 +60,3 @@ model.add(Dense(5, activation='softmax'))
 model.compile(optimizer=tf.keras.optimizers.Adam(3e-4),
               loss='categorical_crossentropy', 
               metrics=['accuracy'])
-
-log_dir = "logs/fit/" + "MODEL_14"
-tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
-
-model.fit(training_data,
-          validation_data=val_data,epochs=50,
-          callbacks=[tensorboard_callback])
