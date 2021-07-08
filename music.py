@@ -36,8 +36,8 @@ for root, folders, files in os.walk('/content/drive/MyDrive/Python Project/sound
                     start = end
                     end = start + (size//5)
 
-from google.colab import drive
-drive.mount('/content/drive')
+# from google.colab import drive
+# drive.mount('/content/drive')
 
 import tensorflow as tf
 from tensorflow.keras import Sequential
@@ -100,14 +100,14 @@ things = pd.DataFrame({'FILES':val_data.filenames,'PRED':[classes[x] for x in pr
 things
 # ! rm -r img_data/.ipynb_checkpoints
 
-from tensorflow.keras.models import load_model
-import librosa
-import numpy as np
-import matplotlib.pyplot as plt
-from tensorflow.keras.preprocessing import image
-from collections import Counter
+# from tensorflow.keras.models import load_model
+# import librosa
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from tensorflow.keras.preprocessing import image
+# from collections import Counter
 
-model.save('MODEL.h5')
+# model.save('MODEL.h5')
 
 from tensorflow.keras.models import load_model
 import librosa
